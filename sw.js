@@ -7,7 +7,7 @@ var urlsToCache = [
     '/index.html'
 ];
 
-var CACHE_NAME = 'counterxing';
+var CACHE_NAME = 'VideoTogetherStorage';
 
 self.addEventListener('install', function (event) {
     self.skipWaiting();
