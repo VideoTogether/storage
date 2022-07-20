@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+<script>
+    function PostStorage() {
+        window.top.postMessage({
+            type: window.VideoTogetherStoragePosted ? 11 : 10,
+            data: {
+                MinimiseDefault: localStorage.getItem("MinimiseDefault") == 'true',
+                PublicVideoRoom: localStorage.getItem("PublicVideoRoom") == 'true',
+                DisableRedirectJoin: localStorage.getItem("DisableRedirectJoin") == 'true',
+                PasswordProtectedRoom: localStorage.getItem("PasswordProtectedRoom") == 'true',
+            }
+        }, "*");
+    }
+    PostStorage();
+    setInterval(() => {
+        PostStorage();
+    }, 1000);
+    window.addEventListener("message", e => {
+        if (e.data.type == 12) {
+            localStorage.setItem(e.data.data.key, e.data.data.value);
+        }
+    });
+</script>
+
+<body>
+</body>
+
+</html>
