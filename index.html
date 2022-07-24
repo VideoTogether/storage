@@ -14,6 +14,7 @@
     }
     function PostStorage() {
         window.top.postMessage({
+            source: "VideoTogether",
             type: window.VideoTogetherStoragePosted ? 11 : 10,
             data: {
                 MinimiseDefault: localStorage.getItem("MinimiseDefault") == 'true',
